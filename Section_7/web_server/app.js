@@ -3,7 +3,7 @@ let fs = require('fs');
 
 http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type' : 'text/html' });
-    let html = fs.readFileSync(__dirname + '/index.html', 'utf8');
+    let html = fs.createReadStream(__dirname + '/index.html', 'utf8');
     let message = 'What a great day!';
     html = html.replace('{message}', message);
     res.end(html);
