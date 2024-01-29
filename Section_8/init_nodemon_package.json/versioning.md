@@ -1,14 +1,13 @@
-<div align=center>
-    ## Project versioning
+## Project Versioning
 
-    ```
-    Example App v1.7.2
-    ```
-    Can be read as Example App vMajor.Minor.Patch
+```
+Example App v1.7.2
+```
 
-    Where Patch is for some bug fixes, code will work fine
+Can be read as Example App vMajor.Minor.Patch
 
-    Where Minor is for some new features added, code still works fine
+Where Patch is for some bug fixes, code will work fine
 
-    Where Major is for Big Changes, code will break ( maybe )
-</div>
+Where Minor is for some new features added, code still works fine
+
+Where Major is for Big Changes, code will break ( maybe )
