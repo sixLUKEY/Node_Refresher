@@ -1,0 +1,1 @@
+const configValues = require('./config.json');
