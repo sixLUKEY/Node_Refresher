@@ -8,5 +8,5 @@ let todoSchema = new Schema({
   hasAttachment: Boolean,
 });
 
-let Todos = mongose.model("Todos", todoSchema);
+let Todos = mongoose.model("Todos", todoSchema);
 module.exports = Todos;
