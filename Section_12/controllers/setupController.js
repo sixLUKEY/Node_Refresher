@@ -22,9 +22,25 @@ module.exports = function (app) {
         isDone: false,
         hasAttachment: false,
       },
+      {
+        username: "test",
+        todo: "buy food",
+        isDone: false,
+        hasAttachment: true,
+      },
+      {
+        username: "luke",
+        todo: "bake cake",
+        isDone: false,
+        hasAttachment: false,
+      },
     ];
-    Todos.create(starterTodos, (err, results) => {
-      res.send(results);
-    });
+    Todos.create(starterTodos)
+      .then((results) => {
+        res.send(results);
+      })
+      .catch((err) => {
+        throw err;
+      });
   });
 };

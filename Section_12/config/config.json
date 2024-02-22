@@ -1,4 +1,3 @@
 {
-    "username": "test",
-    "password": "test"
+  "connectionString": "mongodb://localhost"
 }
