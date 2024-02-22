@@ -5,18 +5,35 @@ module.exports = function (app) {
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
 
+  app.get("/api/test", (req, res) => {
+    let data = [
+      {
+        name: "Elvis",
+        surname: "Brad",
+      },
+      {
+        name: "Gray",
+        surname: "Paarl",
+      },
+    ];
+    res.send(data)
+  });
+
   app.get("/api/todos/:username", (req, res) => {
-    Todos.find({ username: req.params.username }, (err, todos) => {
-      if (err) throw err;
-      res.send(todos);
-    });
+    Todos.find({ username: req.params.username })
+      .then((todos) => {
+        res.send(todos);
+      })
+      .catch((err) => {
+        throw err;
+      });
   });
 
   app.get("/api/todo/:id", (req, res) => {
-    Todos.findById({ _id: req.params.id }, (err, todos) => {
-      if (err) throw err;
-
-      res.send(todos);
+    Todos.findById({ _id: req.params.id }).then((todo) => {
+      res.send(todo)
+    }).catch((err) => {
+      throw err
     });
   });
 
@@ -51,9 +68,10 @@ module.exports = function (app) {
   });
 
   app.delete("/api/todos", (req, res) => {
-    Todos.findByIdAndDelete(req.body.id, (err) => {
-      if (err) throw err;
-      res.send("success!");
+    Todos.findByIdAndDelete(req.body.id).then((result) => {
+      res.send('result')
+    }).catch((err) => {
+      throw err
     });
   });
 };
